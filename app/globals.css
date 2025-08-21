@@ -1,0 +1,255 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Light theme as default */
+  --background: oklch(1 0 0); /* Pure white background */
+  --foreground: oklch(0.08 0 0); /* Darker text for better contrast */
+  --card: oklch(0.98 0 0); /* Slightly lighter cards */
+  --card-foreground: oklch(0.08 0 0); /* Darker text on cards */
+  --popover: oklch(0.98 0 0); /* Light popover background */
+  --popover-foreground: oklch(0.08 0 0); /* Darker popover text */
+  --primary: oklch(0.45 0.18 220); /* Darker, more saturated blue for better contrast */
+  --primary-foreground: oklch(1 0 0); /* Pure white text on primary */
+  --secondary: oklch(0.94 0 0); /* Slightly darker secondary */
+  --secondary-foreground: oklch(0.08 0 0); /* Darker text on secondary */
+  --muted: oklch(0.96 0 0); /* Lighter muted background */
+  --muted-foreground: oklch(0.45 0 0); /* Much darker muted text for better readability */
+  --accent: oklch(0.45 0.18 220); /* Darker accent matching primary */
+  --accent-foreground: oklch(1 0 0); /* White text on accent */
+  --destructive: oklch(0.55 0.22 25); /* Slightly darker red */
+  --destructive-foreground: oklch(1 0 0); /* White text on destructive */
+  --border: oklch(0.85 0 0); /* Darker borders for better visibility */
+  --input: oklch(0.98 0 0); /* Light input background */
+  --ring: oklch(0.45 0.18 220); /* Darker focus ring */
+  --chart-1: oklch(0.4 0.15 260); /* Darker chart colors for light theme */
+  --chart-2: oklch(0.2 0 0);
+  --chart-3: oklch(0.45 0.12 280);
+  --chart-4: oklch(0.45 0.18 220);
+  --chart-5: oklch(0.35 0.1 200);
+  --radius: 0.5rem;
+  --sidebar: oklch(0.98 0 0); /* Light sidebar */
+  --sidebar-foreground: oklch(0.08 0 0); /* Darker sidebar text */
+  --sidebar-primary: oklch(0.45 0.18 220); /* Darker sidebar primary */
+  --sidebar-primary-foreground: oklch(1 0 0); /* White text on sidebar primary */
+  --sidebar-accent: oklch(0.45 0.18 220); /* Darker sidebar accent */
+  --sidebar-accent-foreground: oklch(1 0 0); /* White text on sidebar accent */
+  --sidebar-border: oklch(0.85 0 0); /* Darker sidebar border */
+  --sidebar-ring: oklch(0.45 0.18 220); /* Darker sidebar ring */
+}
+
+.dark {
+  /* Dark theme variables */
+  --background: oklch(0.05 0 0); /* Deep black background */
+  --foreground: oklch(0.98 0 0); /* Pure white text */
+  --card: oklch(0.12 0 0); /* Dark gray cards */
+  --card-foreground: oklch(0.98 0 0); /* White text on cards */
+  --popover: oklch(0.12 0 0); /* Dark popover background */
+  --popover-foreground: oklch(0.98 0 0); /* White popover text */
+  --primary: oklch(0.8 0.08 220); /* Baby blue primary */
+  --primary-foreground: oklch(0.05 0 0); /* Black text on primary */
+  --secondary: oklch(0.98 0 0); /* White secondary */
+  --secondary-foreground: oklch(0.05 0 0); /* Black text on secondary */
+  --muted: oklch(0.4 0 0); /* Muted gray */
+  --muted-foreground: oklch(0.7 0 0); /* Lighter muted text */
+  --accent: oklch(0.8 0.08 220); /* Baby blue accent */
+  --accent-foreground: oklch(0.05 0 0); /* Black text on accent */
+  --destructive: oklch(0.6 0.2 25); /* Red for errors */
+  --destructive-foreground: oklch(0.98 0 0); /* White text on destructive */
+  --border: oklch(0.2 0 0); /* Dark borders */
+  --input: oklch(0.15 0 0); /* Dark input background */
+  --ring: oklch(0.8 0.08 220); /* Baby blue focus ring */
+  --chart-1: oklch(0.65 0.15 260); /* Chart colors */
+  --chart-2: oklch(0.45 0 0);
+  --chart-3: oklch(0.7 0.12 280);
+  --chart-4: oklch(0.8 0.08 220);
+  --chart-5: oklch(0.6 0.1 200);
+  --sidebar: oklch(0.12 0 0); /* Dark sidebar */
+  --sidebar-foreground: oklch(0.98 0 0); /* White sidebar text */
+  --sidebar-primary: oklch(0.8 0.08 220); /* Baby blue sidebar primary */
+  --sidebar-primary-foreground: oklch(0.05 0 0); /* Black text on sidebar primary */
+  --sidebar-accent: oklch(0.8 0.08 220); /* Baby blue sidebar accent */
+  --sidebar-accent-foreground: oklch(0.05 0 0); /* Black text on sidebar accent */
+  --sidebar-border: oklch(0.2 0 0); /* Dark sidebar border */
+  --sidebar-ring: oklch(0.8 0.08 220); /* Baby blue sidebar ring */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* Font size variants */
+  .small {
+    font-size: 0.875rem;
+  }
+
+  .small h1 {
+    font-size: 2.5rem;
+  }
+
+  .small h2 {
+    font-size: 1.875rem;
+  }
+
+  .small h3 {
+    font-size: 1.5rem;
+  }
+
+  .normal {
+    font-size: 1rem;
+  }
+
+  .large {
+    font-size: 1.125rem;
+  }
+
+  .large h1 {
+    font-size: 4rem;
+  }
+
+  .large h2 {
+    font-size: 2.5rem;
+  }
+
+  .large h3 {
+    font-size: 2rem;
+  }
+
+  /* High contrast mode for light theme */
+  .high-contrast:not(.dark) {
+    --background: oklch(1 0 0) !important; /* Pure white */
+    --foreground: oklch(0 0 0) !important; /* Pure black */
+    --card: oklch(1 0 0) !important; /* Pure white cards */
+    --card-foreground: oklch(0 0 0) !important; /* Pure black text on cards */
+    --muted: oklch(0.98 0 0) !important; /* Very light gray for subtle separation */
+    --muted-foreground: oklch(0 0 0) !important; /* Pure black for maximum contrast */
+    --border: oklch(0 0 0) !important; /* Pure black borders */
+    --primary: oklch(0 0 0) !important; /* Black primary */
+    --primary-foreground: oklch(1 0 0) !important; /* White text on primary */
+    --secondary: oklch(0.98 0 0) !important; /* Very light gray secondary */
+    --secondary-foreground: oklch(0 0 0) !important; /* Black text on secondary */
+    --popover: oklch(1 0 0) !important; /* Pure white popover */
+    --popover-foreground: oklch(0 0 0) !important; /* Pure black popover text */
+    --accent: oklch(0 0 0) !important; /* Black accent */
+    --accent-foreground: oklch(1 0 0) !important; /* White text on accent */
+    --input: oklch(1 0 0) !important; /* Pure white input */
+    --ring: oklch(0 0 0) !important; /* Black focus ring */
+  }
+
+  /* High contrast mode for dark theme */
+  .high-contrast.dark {
+    --background: oklch(0 0 0) !important; /* Pure black */
+    --foreground: oklch(1 0 0) !important; /* Pure white */
+    --card: oklch(0 0 0) !important; /* Pure black cards */
+    --card-foreground: oklch(1 0 0) !important; /* Pure white text on cards */
+    --muted: oklch(0.02 0 0) !important; /* Very dark gray for subtle separation */
+    --muted-foreground: oklch(1 0 0) !important; /* Pure white muted text */
+    --border: oklch(1 0 0) !important; /* Pure white borders */
+    --primary: oklch(1 0 0) !important; /* White primary */
+    --primary-foreground: oklch(0 0 0) !important; /* Black text on primary */
+    --secondary: oklch(0.02 0 0) !important; /* Very dark gray secondary */
+    --secondary-foreground: oklch(1 0 0) !important; /* White text on secondary */
+    --popover: oklch(0 0 0) !important; /* Pure black popover */
+    --popover-foreground: oklch(1 0 0) !important; /* Pure white popover text */
+    --accent: oklch(1 0 0) !important; /* White accent */
+    --accent-foreground: oklch(0 0 0) !important; /* Black text on accent */
+    --input: oklch(0 0 0) !important; /* Pure black input */
+    --ring: oklch(1 0 0) !important; /* White focus ring */
+  }
+
+  /* Force high contrast colors on specific elements */
+  .high-contrast * {
+    border-color: var(--border) !important;
+  }
+
+  .high-contrast .text-muted-foreground {
+    color: var(--muted-foreground) !important;
+  }
+
+  .high-contrast .text-foreground {
+    color: var(--foreground) !important;
+  }
+
+  .high-contrast .bg-background {
+    background-color: var(--background) !important;
+  }
+
+  .high-contrast .bg-card {
+    background-color: var(--card) !important;
+  }
+
+  .high-contrast .bg-muted {
+    background-color: var(--muted) !important;
+  }
+
+  .high-contrast .bg-secondary {
+    background-color: var(--secondary) !important;
+  }
+
+  .high-contrast .bg-primary {
+    background-color: var(--primary) !important;
+    color: var(--primary-foreground) !important;
+  }
+
+  .high-contrast .bg-accent {
+    background-color: var(--accent) !important;
+    color: var(--accent-foreground) !important;
+  }
+
+  /* Adicionando animação shimmer para as barras de habilidades */
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
